@@ -2,13 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Secretary>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Grade>
  */
-class SecretaryFactory extends Factory
+class GradeFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +17,7 @@ class SecretaryFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => User::factory(),
-            'rank' => fake()->randomElement($array = ['Secretario', 'asistente']),
+            //
         ];
     }
 }

@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Parallel;
+use App\Models\Stage;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +20,9 @@ class StudentFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => User::factory(),
+            'parallel_id' => Parallel::factory(),
+            'stage_id' => Stage::factory(),
         ];
     }
 }
