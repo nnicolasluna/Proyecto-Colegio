@@ -2,6 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\Parallel;
+use App\Models\Period;
+use App\Models\Stage;
+use App\Models\Subject;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +21,10 @@ class ScheduleFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'subject_id' => Subject::factory(),
+            'stage_id' => Stage::factory(),
+            'parallel_id' => Parallel::factory(),
+            'period_id' => Period::factory(),
         ];
     }
 }

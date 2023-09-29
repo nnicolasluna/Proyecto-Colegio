@@ -17,7 +17,8 @@ class SubjectFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'namesub' => fake()->randomElement($array = ['Mate', 'Fis']),
+            'initialsub' => fake()->randomElement($array = ['M', 'F']),
         ];
     }
 }

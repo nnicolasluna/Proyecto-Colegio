@@ -17,7 +17,9 @@ class StageFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'namestage' => fake()->randomElement($array = ['1A', '2A', '3A', '4A']),
+            'initialstage' => fake()->randomElement($array = ['1', '2']),
+            
         ];
     }
 }

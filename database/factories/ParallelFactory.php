@@ -17,7 +17,7 @@ class ParallelFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nameparallel' => fake()->randomElement($array = ['A', 'B', 'C', 'D', 'E']),
         ];
     }
 }

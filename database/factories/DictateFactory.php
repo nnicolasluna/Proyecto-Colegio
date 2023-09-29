@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Subject;
+use App\Models\Teacher;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,8 @@ class DictateFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'teacher_id' => Teacher::factory(),
+            'subject_id' => Subject::factory(),
         ];
     }
 }

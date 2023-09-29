@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Stage;
+use App\Models\Subject;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,8 @@ class BelongFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'stage_id' => Stage::factory(),
+            'subject_id' => Subject::factory(),
         ];
     }
 }

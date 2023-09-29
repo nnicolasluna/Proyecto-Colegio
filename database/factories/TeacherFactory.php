@@ -23,8 +23,8 @@ class TeacherFactory extends Factory
             'rank' => fake()->randomElement($array = ['Nuevo', 'Antiguo']),
             'load' => fake()->numberBetween(10, 40),
             'user_id' => User::factory(),
-            'user_id' => Stage::factory(),
-            'user_id' => Parallel::factory(),
+            'stage_id' => Stage::factory(),
+            'parallel_id' => Parallel::factory(),
         ];
     }
 }
