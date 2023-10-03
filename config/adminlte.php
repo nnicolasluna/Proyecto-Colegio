@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Armando Escobar Uria',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>ESCOBAR URIA</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -312,12 +312,20 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
+            'text'        => 'Notas',
             'url'         => 'admin/pages',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
+            //'label'       => 4,
             'label_color' => 'success',
         ],
+        [
+            'text'        => 'Cursos',
+            'url'         => 'admin/pages',
+            'icon'        => 'fa fa-pen-alt',
+            //'label'       => 4,
+            'label_color' => 'success',
+        ],
+        /*
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -382,7 +390,7 @@ return [
             'text'       => 'information',
             'icon_color' => 'cyan',
             'url'        => '#',
-        ],
+        ], */
     ],
 
     /*
