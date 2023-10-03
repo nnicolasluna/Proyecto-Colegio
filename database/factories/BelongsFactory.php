@@ -2,14 +2,14 @@
 
 namespace Database\Factories;
 
+use App\Models\Stage;
 use App\Models\Subject;
-use App\Models\Teacher;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class DictateFactory extends Factory
+class BelongsFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,7 +19,7 @@ class DictateFactory extends Factory
     public function definition(): array
     {
         return [
-            'teacher_id' => Teacher::factory(),
+            'stage_id' => Stage::factory(),
             'subject_id' => Subject::factory(),
         ];
     }

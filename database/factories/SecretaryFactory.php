@@ -19,7 +19,7 @@ class SecretaryFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'rank' => fake()->randomElement($array = ['Secretario', 'asistente']),
+            'post' => fake()->randomElement($array = ['Secretario', 'asistente']),
         ];
     }
 }

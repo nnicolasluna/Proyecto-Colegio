@@ -23,11 +23,11 @@ class GradeFactory extends Factory
             'student_id' => Student::factory(),
             'teacher_id' => Teacher::factory(),
             'subject_id' => Subject::factory(),
-            'grade1' => fake()->numberBetween(599999999, 699999999),
-            'grade2' => fake()->numberBetween(599999999, 699999999),
-            'grade3' => fake()->numberBetween(599999999, 699999999),
-            'grade4' => fake()->numberBetween(599999999, 699999999),
-            'gradefinal' => fake()->numberBetween(599999999, 699999999),
+            'grade1' => fake()->numberBetween(1, 100),
+            'grade2' => fake()->numberBetween(1, 100),
+            'grade3' => fake()->numberBetween(1, 100),
+            'grade4' => fake()->numberBetween(1, 100),
+            'gradefinal' => fake()->numberBetween(1, 100),
             
         ];
     }
