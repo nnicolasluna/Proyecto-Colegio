@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>ARMANDO</b> e. u.',
+    'logo' => '<b class="g">ARMANDO e. u.</b> ',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.jpg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -318,8 +318,8 @@ return [
             'label_color' => 'success',
         ],
         [
-            'text'        => 'Cursos',
-            'url'         => 'admin/pages',
+            'text'        => 'Horario',
+            'url'         => '/students',
             'icon'        => 'fa fa-pen-alt',
             //'label'       => 4,
             'label_color' => 'success',
