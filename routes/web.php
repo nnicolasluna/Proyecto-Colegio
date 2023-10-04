@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,7 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 Route::get('students', [StudentController::class, 'index'])->name('student.index');
+Route::get('schedule', [StudentController::class, 'schedule'])->name('student.schedule');
 Route::get('student/{id}', [StudentController::class, 'show'])->name('student.show');
 Route::get('student', [StudentController::class, 'create'])->name('student.create');
 Route::post('student', [StudentController::class, 'store'])->name('student.store');

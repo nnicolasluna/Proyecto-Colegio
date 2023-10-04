@@ -319,7 +319,7 @@ return [
         ],
         [
             'text'        => 'Horario',
-            'url'         => '/students',
+            'url'         => '/schedule',
             'icon'        => 'fa fa-pen-alt',
             //'label'       => 4,
             'label_color' => 'success',

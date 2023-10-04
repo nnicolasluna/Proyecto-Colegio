@@ -33,15 +33,13 @@ class EventServiceProvider extends ServiceProvider
         Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
 
             $student = Student::where('user_id', Auth::user()->id)->first();
-            $event->menu->add([
-                'text' => 'Notas',
-                'url' => '/student/'.$student->user_id,
-                'icon'        => 'far fa-fw fa-file',
-            ]);
-
-           
-
-          
+            if ($student != null) {
+                $event->menu->add([
+                    'text' => 'Notas',
+                    'url' => '/student/' . $student->user_id,
+                    'icon'        => 'far fa-fw fa-file',
+                ]);
+            }
         });
     }
 

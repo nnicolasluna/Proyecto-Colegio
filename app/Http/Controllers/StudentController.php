@@ -12,14 +12,21 @@ class StudentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(){
+        $user = Auth::user();
+        $data = [
+            'user' => $user,
+        ];
+        return view('student.index',$data);
+    }
+    public function schedule()
     {
         $student = Student::where('user_id', Auth::user()->id)->first();
         $data = [
             'student' => $student,
         ];
        // return($data);
-        return view('student.index', $data);
+        return view('student.schedule', $data);
     }
 
     /**
