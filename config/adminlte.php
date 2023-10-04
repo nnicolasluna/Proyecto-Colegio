@@ -308,12 +308,11 @@ return [
         ],
         [
             'text' => 'blog',
-            'url'  => 'admin/blog',
+            'url'  => '/students',
             'can'  => 'manage-blog',
         ],
         [
             'text'        => 'Notas',
-            'url'         => 'admin/pages',
             'icon'        => 'far fa-fw fa-file',
             //'label'       => 4,
             'label_color' => 'success',

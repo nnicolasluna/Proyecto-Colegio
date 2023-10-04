@@ -31,6 +31,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\Dictates::factory(30)->create();
         \App\Models\Belongs::factory(20)->create();
         \App\Models\Schedule::factory(20)->create();
-        \App\Models\Grade::factory(100)->create();
+        \App\Models\Grade::factory(300)->create();
     }
 }

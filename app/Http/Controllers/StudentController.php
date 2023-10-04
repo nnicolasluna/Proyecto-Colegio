@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Grade;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
@@ -12,7 +14,12 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('student.index');
+        $student = Student::where('user_id', Auth::user()->id)->first();
+        $data = [
+            'student' => $student,
+        ];
+       // return($data);
+        return view('student.index', $data);
     }
 
     /**
@@ -34,9 +41,15 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Student $student)
+    public function show($id)
     {
-        //
+        $grades = Grade::where('student_id', $id)->get();
+        $grades = Grade::join('subjects', 'subjects.id', 'grades.subject_id')->where('student_id', $id)->get();
+        $data = [
+            'grades' => $grades,
+        ];
+        //return ($grades);
+        return view('student.show', $data);
     }
 
     /**
