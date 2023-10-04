@@ -2,10 +2,15 @@
 
 namespace App\Providers;
 
+use App\Models\Student;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
+
+
+use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -25,7 +30,19 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
+
+            $student = Student::where('user_id', Auth::user()->id)->first();
+            $event->menu->add([
+                'text' => 'Notas',
+                'url' => '/student/'.$student->user_id,
+                'icon'        => 'far fa-fw fa-file',
+            ]);
+
+           
+
+          
+        });
     }
 
     /**

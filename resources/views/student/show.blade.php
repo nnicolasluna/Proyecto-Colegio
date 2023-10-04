@@ -4,7 +4,7 @@
 
 @section('content_header')
 
-<h1>Dashboard</h1>
+<h1>Notas</h1>
 @stop
 
 @section('content')
@@ -53,6 +53,9 @@
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 <script>
-    new DataTable('#example');
+    new DataTable('#example',{
+        paging: false,
+        searching: false,
+    });
 </script>
 @stop
