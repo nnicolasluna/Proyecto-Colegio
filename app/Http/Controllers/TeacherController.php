@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dictates;
 use App\Models\Teacher;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TeacherController extends Controller
 {
@@ -12,7 +15,12 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        return view('teacher.index');
+        $teacher = Teacher::where('user_id', Auth::user()->id)->first();
+        $subjects = Dictates::join('subjects', 'subjects.id', 'dictates.subject_id')->where('teacher_id', $teacher->id)->get();
+        $data = [
+            'subjects' => $subjects
+        ];
+        return view('teacher.index', $data);
     }
 
     /**
