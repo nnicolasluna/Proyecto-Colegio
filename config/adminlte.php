@@ -319,7 +319,6 @@ return [
         ],
         [
             'text'        => 'Horario',
-            'url'         => '/schedule',
             'icon'        => 'fa fa-pen-alt',
             //'label'       => 4,
             'label_color' => 'success',

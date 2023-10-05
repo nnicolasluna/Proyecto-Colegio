@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Dictates;
 use App\Models\Student;
+use App\Models\Teacher;
+use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -30,6 +33,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
         Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
 
             $student = Student::where('user_id', Auth::user()->id)->first();
@@ -37,7 +41,29 @@ class EventServiceProvider extends ServiceProvider
                 $event->menu->add([
                     'text' => 'Notas',
                     'url' => '/student/' . $student->user_id,
-                    'icon'        => 'far fa-fw fa-file',
+                    'icon' => 'far fa-fw fa-file',
+                ]);
+            }
+        });
+        Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
+            $teacher = Teacher::where('user_id', Auth::user()->id)->first();
+            if ($teacher != null) {
+                $subjects = Dictates::join('subjects', 'subjects.id', 'dictates.subject_id')->where('teacher_id', $teacher->id)->get();;
+                $arrayMenu = array('text' => '', 'url' => '', 'icon' => '');
+                foreach ($subjects as $subject) {
+
+                    $arrayMenu[] = array(
+                        'text' => $subject->namesub,
+                        'url' => '/teacher/'.$subject->id,
+                        'icon' => 'fas fa-fw fa-file'
+                    );
+                }
+
+                $event->menu->add([
+                    'text' => 'Materias',
+                    'url' => '/teachers',
+                    'icon' => 'fas fa-fw fa-file',
+                    'submenu' => $arrayMenu,
                 ]);
             }
         });
