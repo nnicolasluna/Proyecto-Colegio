@@ -323,7 +323,7 @@ return [
             //'label'       => 4,
             'label_color' => 'success',
         ],
-        /*
+        
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -334,7 +334,10 @@ return [
             'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
-        ],
+        ]
+        /*
+        ,
+
         [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',

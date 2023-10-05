@@ -55,14 +55,14 @@ class EventServiceProvider extends ServiceProvider
                     $arrayMenu[] = array(
                         'text' => $subject->namesub,
                         'url' => '/teacher/'.$subject->id,
-                        'icon' => 'fas fa-fw fa-file'
+                        'icon' => 'fas fa-regular fa-book'
                     );
                 }
 
                 $event->menu->add([
                     'text' => 'Materias',
                     'url' => '/teachers',
-                    'icon' => 'fas fa-fw fa-file',
+                    'icon' => 'fas fa-th',
                     'submenu' => $arrayMenu,
                 ]);
             }

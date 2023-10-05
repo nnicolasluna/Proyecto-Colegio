@@ -8,7 +8,7 @@
 @section('content')
 <div class="card card-primary">
     <div class="card-header">
-        <h3>Horario de Clases</h3>
+        <b>Horario de Clases</b>
     </div>
     <div class="card-body">
         <table class="cal">
