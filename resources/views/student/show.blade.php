@@ -8,7 +8,7 @@
 @section('content')
 <div class="card card-primary">
     <div class="card-header">
-        <h2>Notas</h2>
+        <b>Notas</b>
     </div>
     <div class="card-body">
         @section('plugins.Datatables', true)
