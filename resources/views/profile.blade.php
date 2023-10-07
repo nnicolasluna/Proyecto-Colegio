@@ -9,7 +9,7 @@
             <div class="card card-primary card-outline">
                 <div class="card-body box-profile">
                     <div class="text-center">
-                        <!-- <img class="profile-user-img -img-fluid img-circle">-->
+                        <img class="profile-user-img -img-fluid img-circle"src="vendor/adminlte/dist/img/foto-perfil.jpg">
                         <h4>{{$user->name}}</h4>
                         <h5>{{$user->paternal}} {{$user->maternal}}</h5>
                     </div>
@@ -28,6 +28,10 @@
                         <tr>
                             <td style="margin-right: 500px;"><b>Apellidos:</b></td>
                             <td style="text-align: left;">{{ $user->paternal}} {{$user->maternal}}</td>
+                        </tr>
+                        <tr>
+                            <td style="margin-right: 500px;"><b>Carnet de Identidad:</b></td>
+                            <td style="text-align: left;">{{ $user->ci}}</td>
                         </tr>
                         <tr>
                             <td style="margin-right: 500px;"><b>Correo:</b></td>
