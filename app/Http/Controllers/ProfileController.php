@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Student;
+use App\Models\Teacher;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +18,17 @@ class ProfileController extends Controller
      */
     public function index(){
         $user = Auth::user();
+        $teacher = Teacher::where('user_id',$user->id)->first();
+        $student = Student::where('user_id',$user->id)->first();
+        if($teacher != null){
+            
+        }if ($student != null) {
+            
+        } else {
+            # code...
+        }
+        
+
         $data = [
             'user'=>$user
         ];
