@@ -12,6 +12,7 @@
                         <img class="profile-user-img -img-fluid img-circle"src="vendor/adminlte/dist/img/foto-perfil.jpg">
                         <h4>{{$user->name}}</h4>
                         <h5>{{$user->paternal}} {{$user->maternal}}</h5>
+                        <h6>{{$ini}}</h6>
                     </div>
                 </div>
             </div>

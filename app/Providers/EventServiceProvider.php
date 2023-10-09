@@ -46,6 +46,17 @@ class EventServiceProvider extends ServiceProvider
             }
         });
         Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
+
+            $student = Student::where('user_id', Auth::user()->id)->first();
+            if ($student != null) {
+                $event->menu->add([
+                    'text' => 'Horario',
+                    'url' => '/schedule',
+                    'icon' => 'fa fa-pen-alt',
+                ]);
+            }
+        });
+        Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
             $teacher = Teacher::where('user_id', Auth::user()->id)->first();
             if ($teacher != null) {
                 $subjects = Dictates::join('subjects', 'subjects.id', 'dictates.subject_id')->where('teacher_id', $teacher->id)->get();;

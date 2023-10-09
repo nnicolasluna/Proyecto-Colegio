@@ -24,34 +24,63 @@
                 </tr>
 
             </thead>
-
+            
             <tbody>
+            
                 <tr>
                     <td class="horas">8:30 a 9:25 </td>
-                    <td class="Lengua">Lengua</td>
-                    <td class="Mates">Mates </td>
-                    <td class="Mates">Mates </td>
-                    <td class="Mates">Mates </td>
-                    <td class="Edfisica">Educación física</td>
-
+                    @foreach($schedule as $hora)
+                    @if($hora->day=="Monday" && $hora->entry >= '08:00:00' && $hora->departure <= '10:00:00')
+                    <td>{{$hora->namesub}}</td>
+                    @elseif($hora->day=="Thuesday"&& $hora->entry >= '08:00:00' && $hora->departure <= '10:00:00')
+                    <td class="">{{$hora->namesub}}</td>
+                    @elseif($hora->day=="Wednesday" && $hora->entry >= '08:00:00' && $hora->departure <= '10:00:00')
+                    <td class="">{{$hora->namesub}}</td>
+                    @elseif($hora->day=="Thursday" && $hora->entry >= '08:00:00' && $hora->departure <= '10:00:00')
+                    <td class="">{{$hora->namesub}}</td>
+                    @elseif($hora->day=="Friday" && $hora->entry >= '08:00:00' && $hora->departure <= '10:00:00')
+                    <td class="">{{$hora->namesub}}</td>
+                    @else
+                    <td></td>
+                    @endif
+                    @endforeach
                 </tr>
 
                 <tr>
                     <td class="horas">9:25 a 10:20 </td>
-                    <td class="Ingles">Inglés</td>
-                    <td class="Mates">Mates </td>
-                    <td class="Musica">Musica </td>
-                    <td class="Ingles">Inglés</td>
-                    <td class="Lengua">Lengua </td>
+                    @foreach($schedule as $hora)
+                    @if($hora->day=="Monday" && $hora->entry >= '10:00:00' && $hora->departure <= '12:00:00')
+                    <td>{{$hora->namesub}}</td>
+                    @elseif($hora->day=="Thuesday"&& $hora->entry >= '10:00:00' && $hora->departure <= '12:00:00')
+                    <td class="">{{$hora->namesub}}</td>
+                    @elseif($hora->day=="Wednesday" && $hora->entry >= '10:00:00' && $hora->departure <= '12:00:00')
+                    <td class="">{{$hora->namesub}}</td>
+                    @elseif($hora->day=="Thursday" && $hora->entry >= '10:00:00' && $hora->departure <= '12:00:00')
+                    <td class="">{{$hora->namesub}}</td>
+                    @elseif($hora->day=="Friday" && $hora->entry >= '10:00:00' && $hora->departure <= '12:00:00')
+                    <td class="">{{$hora->namesub}}</td>
+                    @else
+                    <td></td>
+                    @endif
+                    @endforeach
                 </tr>
                 <tr>
                     <td class="horas">10:20 a 11:10 </td>
-                    <td class="Lengua">Lengua</td>
-                    <td class="Mates">Mates </td>
-                    <td class="Lengua">Lengua</td>
-                    <td class="Ingles">Inglés </td>
-                    <td class="Mates">Mates </td>
-
+                    @foreach($schedule as $hora)
+                    @if($hora->day=="Monday" && $hora->entry >= '14:00:00' && $hora->departure <= '16:00:00')
+                    <td>{{$hora->namesub}}</td>
+                    @elseif($hora->day=="Thuesday"&& $hora->entry >= '14:00:00' && $hora->departure <= '16:00:00')
+                    <td class="">{{$hora->namesub}}</td>
+                    @elseif($hora->day=="Wednesday" && $hora->entry >= '14:00:00' && $hora->departure <= '16:00:00')
+                    <td class="">{{$hora->namesub}}</td>
+                    @elseif($hora->day=="Thursday" && $hora->entry >= '14:00:00' && $hora->departure <= '16:00:00')
+                    <td class="">{{$hora->namesub}}</td>
+                    @elseif($hora->day=="Friday" && $hora->entry >= '14:00:00' && $hora->departure <= '16:00:00')
+                    <td class="">{{$hora->namesub}}</td>
+                    @else
+                    <td></td>
+                    @endif
+                    @endforeach
                 </tr>
                 <tr>
                     <td class="horas">11:10 a 11:35 </td>
@@ -63,30 +92,41 @@
 
                 <tr>
                     <td class="horas">11:35 a 12:30 </td>
-                    <td class="Mates">Mates </td>
-                    <td class="Musica">Música música</td>
-                    <td class="Lengua">Lengua </td>
-                    <td class="Tecno"> Tecnología </td>
-                    <td class="Mates">Mates </td>
+                    @foreach($schedule as $hora)
+                    @if($hora->day=="Monday" && $hora->entry >= '16:00:00' && $hora->departure <= '18:00:00')
+                    <td>{{$hora->namesub}}</td>
+                    @elseif($hora->day=="Thuesday"&& $hora->entry >= '16:00:00' && $hora->departure <= '18:00:00')
+                    <td class="">{{$hora->namesub}}</td>
+                    @elseif($hora->day=="Wednesday" && $hora->entry >= '16:00:00' && $hora->departure <= '18:00:00')
+                    <td class="">{{$hora->namesub}}</td>
+                    @elseif($hora->day=="Thursday" && $hora->entry >= '16:00:00' && $hora->departure <= '18:00:00')
+                    <td class="">{{$hora->namesub}}</td>
+                    @elseif($hora->day=="Friday" && $hora->entry >= '16:00:00' && $hora->departure <= '18:00:00')
+                    <td class="">{{$hora->namesub}}</td>
+                    @else
+                    <td></td>
+                    @endif
+                    @endforeach
                 </tr>
 
                 <tr>
                     <td class="horas">12:30 a 13:25 </td>
-                    <td class="Mates">Mates </td>
-                    <td class="Tecno"> Tecnología </td>
-                    <td class="Lengua">Lengua </td>
-                    <td class="Tecno"> Tecnología </td>
-                    <td class="Mates">Mates </td>
+                    <td class=""> </td>
+                    <td class="">  </td>
+                    <td class=""> </td>
+                    <td class="">  </td>
+                    <td class=""> </td>
                 </tr>
                 <tr>
                     <td class="horas">13:25 a 14:15</td>
-                    <td class="Mates">Mates </td>
-                    <td class="Tecno"> Tecnología </td>
-                    <td class="Lengua">Lengua </td>
-                    <td class="Mates">Mates </td>
-                    <td class="Lengua">Lengua Info 2</td>
+                    <td class=""> </td>
+                    <td class="">  </td>
+                    <td class=""> </td>
+                    <td class=""> </td>
+                    <td class="">  </td>
 
                 </tr>
+                
             </tbody>
         </table>
     </div>

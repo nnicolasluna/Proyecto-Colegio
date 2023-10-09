@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Secretary;
 use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Http\RedirectResponse;
@@ -20,19 +21,23 @@ class ProfileController extends Controller
         $user = Auth::user();
         $teacher = Teacher::where('user_id',$user->id)->first();
         $student = Student::where('user_id',$user->id)->first();
+        $adm = Secretary::where('user_id',$user->id)->first();
+        $ini = null;
         if($teacher != null){
+            $ini = "Profesor";
             
         }if ($student != null) {
+            $ini = "Estudiante";
             
-        } else {
-            # code...
+        } if ($adm != null) {
+            $ini = "Administrativo";
         }
-        
-
         $data = [
-            'user'=>$user
+            'user'=>$user,
+            'ini' => $ini
         ];
         return view('profile',$data);
+        
     }
     public function edit(Request $request): View
     {
