@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Student::factory(800)->create();
         \App\Models\Principal::factory(1)->create();
         \App\Models\Secretary::factory(10)->create();
-        \App\Models\Subject::factory(15)->create();
+        \App\Models\Subject::factory(5)->create();
         \App\Models\Period::factory(20)->create();
         \App\Models\Parallel::factory(10)->create();
         \App\Models\Period::factory(20)->create();

@@ -21,6 +21,8 @@ return new class extends Migration
             $table->foreign('parallel_id')->references('id')->on('parallels');
             $table->unsignedBigInteger('period_id');
             $table->foreign('period_id')->references('id')->on('periods');
+            $table->unsignedBigInteger('teacher_id');
+            $table->foreign('teacher_id')->references('id')->on('teachers');
             $table->timestamps();
         });
     }

@@ -25,6 +25,7 @@ class ScheduleFactory extends Factory
             'stage_id' => Stage::factory(),
             'parallel_id' => Parallel::factory(),
             'period_id' => Period::factory(),
+            'teacher_id' => Period::factory(),
         ];
     }
 }
