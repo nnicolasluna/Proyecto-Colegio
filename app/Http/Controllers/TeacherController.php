@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dictates;
+use App\Models\Schedule;
 use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -42,9 +43,18 @@ class TeacherController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Teacher $teacher)
+    public function show($id)
     {
-        //
+        $teacher = Teacher::where('user_id', Auth::user()->id)->first();
+        $parallels = Schedule::join('subjects', 'subjects.id', 'schedules.subject_id')
+            ->join('parallels', 'parallels.id', 'schedules.parallel_id')
+            ->join('stages', 'stages.id', 'schedules.stage_id')
+            ->where('subject_id', $id)->where('teacher_id', $teacher->id)->get();
+        $data = [
+            'parallels' => $parallels
+        ];
+        //return view('teacher.show',$data);
+        return ($data);
     }
 
     /**

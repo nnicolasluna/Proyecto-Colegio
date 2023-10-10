@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\GradeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,3 +51,5 @@ Route::post('teacher', [TeacherController::class, 'store'])->name('teacher.store
 Route::get('teacher/edit/{id}', [TeacherController::class, 'edit'])->name('teacher.edit');
 Route::put('teacher/edit/{id}', [TeacherController::class, 'update'])->name('teacher.update');
 Route::delete('teacher/{id}', [TeacherController::class, 'destroy'])->name('teacher.destroy');
+
+Route::get('grade/{subject}/{stage}/{parallel}', [GradeController::class, 'show']);

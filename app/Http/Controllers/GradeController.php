@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Grade;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GradeController extends Controller
 {
@@ -34,9 +36,16 @@ class GradeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Grade $grade)
+    public function show($subject,$stage,$parallel)
     {
-        //
+        $teacher = Teacher::where('user_id',Auth::user()->id)->first();
+        $grades = Grade::where('teacher_id',$teacher->id)
+        ->where('subject_id',$subject)->get();
+        $data = [
+            'grades' => $grades
+        ];
+        //return($data);
+        return view('grade.show',$data);
     }
 
     /**
