@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Grade;
+use App\Models\Subject;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,11 +39,23 @@ class GradeController extends Controller
      */
     public function show($subject,$stage,$parallel)
     {
-        $teacher = Teacher::where('user_id',Auth::user()->id)->first();
-        $grades = Grade::where('teacher_id',$teacher->id)
+        $teacher = Teacher::where('user_id',Auth::user()->id)->where('parallel_id',$parallel)->where('stage_id',$stage)->first();
+        $grades = Grade::
+        join('students','students.id','grades.student_id')
+        ->join('users','users.id','students.user_id')
+        ->where('teacher_id',$teacher->id)
         ->where('subject_id',$subject)->get();
+        $detail = Teacher::join('parallels','parallels.id','teachers.parallel_id')
+        ->join('stages','stages.id','teachers.stage_id')
+        ->where('user_id',Auth::user()->id)
+        ->where('parallel_id',$parallel)
+        ->where('stage_id',$stage)
+        ->first();
+        $subject = Subject::where('id',$subject)->first();
         $data = [
-            'grades' => $grades
+            'grades' => $grades,
+            'detail' =>$detail,
+            'subject' =>$subject
         ];
         //return($data);
         return view('grade.show',$data);

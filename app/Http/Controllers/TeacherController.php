@@ -53,8 +53,8 @@ class TeacherController extends Controller
         $data = [
             'parallels' => $parallels
         ];
-        //return view('teacher.show',$data);
-        return ($data);
+        return view('teacher.show',$data);
+        //return ($data);
     }
 
     /**
