@@ -24,7 +24,8 @@ $config['info'] = false;
 $config['searching'] = false;
 $config['ordering'] = false;
 $config['lengthChange'] = false;
-//$config['dom'] = 'lfrtip';
+$config['buttons'] = false;
+
 @endphp
 <x-adminlte-datatable id="table1" :heads="$heads" head-theme="dark" :config="$config" striped hoverable bordered compressed with-buttons>
     @foreach($grades as $row)
@@ -45,15 +46,4 @@ $config['lengthChange'] = false;
     @endforeach
 </x-adminlte-datatable>
 
-@stop
-@section('js')
-<script>
-    new DataTable('#table1', {
-        paging: false,
-        searching: false,
-        info: false,
-        ordering: false,
-       
-    });
-</script>
 @stop
