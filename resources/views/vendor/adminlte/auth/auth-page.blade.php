@@ -63,12 +63,6 @@
                 @yield('auth_body')
             </div>
 
-            {{-- Card Footer --}}
-            @hasSection('auth_footer')
-                <div class="card-footer {{ config('adminlte.classes_auth_footer', '') }}">
-                    @yield('auth_footer')
-                </div>
-            @endif
 
         </div>
 

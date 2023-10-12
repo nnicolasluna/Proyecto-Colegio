@@ -2,12 +2,29 @@
 
 
 @section('content_header')
-<h1><b>{{$subject->namesub}}</b>   -   {{$detail->initialstage}}{{$detail->nameparallel}} </h1>
+<h1><b>{{$subject->namesub}}</b> - {{$detail->initialstage}}{{$detail->nameparallel}} </h1>
 
 @stop
 @section('content')
-@section('plugins.Datatables', true)
-@section('plugins.DatatablesPlugin', true)
+<table style="width: 100%;">
+    <tr>
+        <td>
+            <a href="/teacher/{{$subject->id}}" class="btn btn-flat btn-primary" type="button">
+                <i class="fas fa-arrow-left"></i>
+                Volver
+            </a>
+        </td>
+        <td align="right">
+            <a href="" class="btn btn-flat btn-success" type="button">
+                <i class="fas fa-lg fa-save"></i>
+                PDF
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+</table>
 @php
 $heads = [
 ['label' => 'Nombre', 'width' => 30],
@@ -24,7 +41,7 @@ $config['info'] = false;
 $config['searching'] = false;
 $config['ordering'] = false;
 $config['lengthChange'] = false;
-$config['buttons'] = false;
+
 
 @endphp
 <x-adminlte-datatable id="table1" :heads="$heads" head-theme="dark" :config="$config" striped hoverable bordered compressed with-buttons>
@@ -38,9 +55,10 @@ $config['buttons'] = false;
         <td>{{$row->grade4}}</td>
         <td>{{$row->gradefinal}}</td>
         <td>
-            <button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
+            <a href="/index" class="btn btn-xs btn-default text-primary mx-1 shadow">
                 <i class="fa fa-lg fa-fw fa-pen"></i>
-            </button>
+            </a>
+
         </td>
     </tr>
     @endforeach
