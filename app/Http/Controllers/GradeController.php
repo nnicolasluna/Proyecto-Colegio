@@ -64,9 +64,9 @@ class GradeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Grade $grade)
+    public function edit()
     {
-        //
+        return view('grade.edit');
     }
 
     /**

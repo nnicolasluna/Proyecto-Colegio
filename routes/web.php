@@ -53,3 +53,4 @@ Route::put('teacher/edit/{id}', [TeacherController::class, 'update'])->name('tea
 Route::delete('teacher/{id}', [TeacherController::class, 'destroy'])->name('teacher.destroy');
 
 Route::get('grade/{subject}/{stage}/{parallel}', [GradeController::class, 'show']);
+Route::get('grades', [GradeController::class, 'edit']);
