@@ -55,7 +55,7 @@ $config['lengthChange'] = false;
         <td>{{$row->grade4}}</td>
         <td>{{$row->gradefinal}}</td>
         <td>
-            <a href="/index" class="btn btn-xs btn-default text-primary mx-1 shadow" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a href="/grade/{{$row->student_id}}/{{$row->subject_id}}/{{$row->teacher_id}}" class="btn btn-xs btn-default text-primary mx-1 shadow" >
                 <i class="fa fa-lg fa-fw fa-pen"></i>
             </a>
 
@@ -63,6 +63,5 @@ $config['lengthChange'] = false;
     </tr>
     @endforeach
 </x-adminlte-datatable>
-
 @stop
-@include('grade.edit')
+

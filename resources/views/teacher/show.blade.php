@@ -18,7 +18,7 @@
             <div class="icon">
                 <i class="fas fa-user-plus"></i>
             </div>
-            <a href="/grade/{{$parallel->subject_id}}/{{$parallel->stage_id}}/{{$parallel->parallel_id}}" class="small-box-footer">
+            <a href="/grades/{{$parallel->subject_id}}/{{$parallel->stage_id}}/{{$parallel->parallel_id}}" class="small-box-footer">
                 Ver <i class="fas fa-arrow-circle-right"></i>
                   </a>
         </div>

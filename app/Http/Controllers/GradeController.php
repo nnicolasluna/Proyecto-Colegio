@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Grade;
 use App\Models\Subject;
 use App\Models\Teacher;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,8 +41,7 @@ class GradeController extends Controller
     public function show($subject,$stage,$parallel)
     {
         $teacher = Teacher::where('user_id',Auth::user()->id)->where('parallel_id',$parallel)->where('stage_id',$stage)->first();
-        $grades = Grade::
-        join('students','students.id','grades.student_id')
+        $grades = Grade::join('students','students.id','grades.student_id')
         ->join('users','users.id','students.user_id')
         ->where('teacher_id',$teacher->id)
         ->where('subject_id',$subject)->get();
@@ -55,7 +55,7 @@ class GradeController extends Controller
         $data = [
             'grades' => $grades,
             'detail' =>$detail,
-            'subject' =>$subject
+            'subject' =>$subject,
         ];
         //return($data);
         return view('grade.show',$data);
@@ -64,9 +64,17 @@ class GradeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit()
+    public function edit($student,$subject,$teacher)
     {
-        return view('grade.edit');
+        $grades = Grade::where('subject_id',$subject)->where('student_id',$student)->where('teacher_id',$teacher)->first();
+        $student = User::where('id',$student)->first();
+        
+        $data = [
+            'student' => $student,
+            'grades' => $grades
+        ];
+        //return $data;
+        return view('grade.edit',$data);
     }
 
     /**
