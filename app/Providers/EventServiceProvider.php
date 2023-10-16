@@ -46,15 +46,11 @@ class EventServiceProvider extends ServiceProvider
             }
         });
         Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
-
-            $student = Student::where('user_id', Auth::user()->id)->first();
-            if ($student != null) {
-                $event->menu->add([
-                    'text' => 'Horario',
-                    'url' => '/schedule',
-                    'icon' => 'fa fa-pen-alt',
-                ]);
-            }
+            $event->menu->add([
+                'text' => 'Horario',
+                'url' => '/schedule',
+                'icon' => 'fa fa-pen-alt',
+            ]);
         });
         Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
             $teacher = Teacher::where('user_id', Auth::user()->id)->first();
@@ -65,7 +61,7 @@ class EventServiceProvider extends ServiceProvider
 
                     $arrayMenu[] = array(
                         'text' => $subject->namesub,
-                        'url' => '/teacher/'.$subject->id,
+                        'url' => '/teacher/' . $subject->id,
                         'icon' => 'fas fa-regular fa-book'
                     );
                 }

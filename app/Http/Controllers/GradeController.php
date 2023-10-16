@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Grade;
+use App\Models\Student;
 use App\Models\Subject;
 use App\Models\Teacher;
 use App\Models\User;
@@ -67,7 +68,8 @@ class GradeController extends Controller
     public function edit($student,$subject,$teacher)
     {
         $grades = Grade::where('subject_id',$subject)->where('student_id',$student)->where('teacher_id',$teacher)->first();
-        $student = User::where('id',$student)->first();
+        $user = Student::where('id',$student)->first();
+        $student = User::where('id',$user->user_id)->first();
         
         $data = [
             'student' => $student,
