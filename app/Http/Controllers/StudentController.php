@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Grade;
 use App\Models\Schedule;
 use App\Models\Student;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,12 +24,19 @@ class StudentController extends Controller
     }
     public function schedule()
     {
+        $teacher = Teacher::where('user_id', Auth::user()->id)->first();
         $student = Student::where('user_id', Auth::user()->id)->first();
-        $schedule = Schedule::join('periods', 'periods.id', 'schedules.id')
-            ->join('subjects', 'subjects.id', 'schedules.id')
-            ->where('parallel_id', $student->parallel_id)
-            ->where('stage_id', $student->stage_id)
-            ->get();
+        if ($student != null) {
+            $schedule = Schedule::join('periods', 'periods.id', 'schedules.id')
+                ->join('subjects', 'subjects.id', 'schedules.id')
+                ->where('parallel_id', $student->parallel_id)
+                ->where('stage_id', $student->stage_id)
+                ->get();
+        } else if ($teacher != null) {
+            $schedule = Schedule::join('periods', 'periods.id', 'schedules.id')
+                ->join('subjects', 'subjects.id', 'schedules.id')
+                ->where('teacher_id', $teacher->id)->get();
+        }
         $data = [
             'student' => $student,
             'schedule' => $schedule

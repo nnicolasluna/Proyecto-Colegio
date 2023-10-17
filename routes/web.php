@@ -51,6 +51,8 @@ Route::post('teacher', [TeacherController::class, 'store'])->name('teacher.store
 Route::get('teacher/edit/{id}', [TeacherController::class, 'edit'])->name('teacher.edit');
 Route::put('teacher/edit/{id}', [TeacherController::class, 'update'])->name('teacher.update');
 Route::delete('teacher/{id}', [TeacherController::class, 'destroy'])->name('teacher.destroy');
+Route::delete('teacher/{id}', [TeacherController::class, 'destroy'])->name('teacher.destroy');
 
 Route::get('grades/{subject}/{stage}/{parallel}', [GradeController::class, 'show']);
 Route::get('grade/{student}/{subject}/{teacher}', [GradeController::class, 'edit']);
+Route::get('grade/pdf',[GradeController::class,'pdf']);

@@ -39,6 +39,9 @@ class GradeController extends Controller
     /**
      * Display the specified resource.
      */
+    public function pdf() {
+        return view('grade.pdf');
+    }
     public function show($subject,$stage,$parallel)
     {
         $teacher = Teacher::where('user_id',Auth::user()->id)->where('parallel_id',$parallel)->where('stage_id',$stage)->first();
