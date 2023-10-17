@@ -9,6 +9,7 @@ use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class GradeController extends Controller
 {
@@ -39,47 +40,68 @@ class GradeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function pdf() {
-        return view('grade.pdf');
-    }
-    public function show($subject,$stage,$parallel)
+    public function pdf($subject, $stage, $parallel)
     {
-        $teacher = Teacher::where('user_id',Auth::user()->id)->where('parallel_id',$parallel)->where('stage_id',$stage)->first();
-        $grades = Grade::join('students','students.id','grades.student_id')
-        ->join('users','users.id','students.user_id')
-        ->where('teacher_id',$teacher->id)
-        ->where('subject_id',$subject)->get();
-        $detail = Teacher::join('parallels','parallels.id','teachers.parallel_id')
-        ->join('stages','stages.id','teachers.stage_id')
-        ->where('user_id',Auth::user()->id)
-        ->where('parallel_id',$parallel)
-        ->where('stage_id',$stage)
-        ->first();
-        $subject = Subject::where('id',$subject)->first();
+        $teacher = Teacher::where('user_id', Auth::user()->id)->where('parallel_id', $parallel)->where('stage_id', $stage)->first();
+        $grades = Grade::join('students', 'students.id', 'grades.student_id')
+            ->join('users', 'users.id', 'students.user_id')
+            ->where('teacher_id', $teacher->id)
+            ->where('subject_id', $subject)->get();
+        $detail = Teacher::join('parallels', 'parallels.id', 'teachers.parallel_id')
+            ->join('stages', 'stages.id', 'teachers.stage_id')
+            ->where('user_id', Auth::user()->id)
+            ->where('parallel_id', $parallel)
+            ->where('stage_id', $stage)
+            ->first();
+        $subject = Subject::where('id', $subject)->first();
         $data = [
             'grades' => $grades,
-            'detail' =>$detail,
-            'subject' =>$subject,
+            'detail' => $detail,
+            'subject' => $subject,
+        ];
+        $pdf = Pdf::loadView('grade.pdf', $data);
+
+        return $pdf->stream();
+        //return view('grade.pdf');
+    }
+    public function show($subject, $stage, $parallel)
+    {
+        $teacher = Teacher::where('user_id', Auth::user()->id)->where('parallel_id', $parallel)->where('stage_id', $stage)->first();
+        $grades = Grade::join('students', 'students.id', 'grades.student_id')
+            ->join('users', 'users.id', 'students.user_id')
+            ->where('teacher_id', $teacher->id)
+            ->where('subject_id', $subject)->get();
+        $detail = Teacher::join('parallels', 'parallels.id', 'teachers.parallel_id')
+            ->join('stages', 'stages.id', 'teachers.stage_id')
+            ->where('user_id', Auth::user()->id)
+            ->where('parallel_id', $parallel)
+            ->where('stage_id', $stage)
+            ->first();
+        $subject = Subject::where('id', $subject)->first();
+        $data = [
+            'grades' => $grades,
+            'detail' => $detail,
+            'subject' => $subject,
         ];
         //return($data);
-        return view('grade.show',$data);
+        return view('grade.show', $data);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($student,$subject,$teacher)
+    public function edit($student, $subject, $teacher)
     {
-        $grades = Grade::where('subject_id',$subject)->where('student_id',$student)->where('teacher_id',$teacher)->first();
-        $user = Student::where('id',$student)->first();
-        $student = User::where('id',$user->user_id)->first();
-        
+        $grades = Grade::where('subject_id', $subject)->where('student_id', $student)->where('teacher_id', $teacher)->first();
+        $user = Student::where('id', $student)->first();
+        $student = User::where('id', $user->user_id)->first();
+
         $data = [
             'student' => $student,
             'grades' => $grades
         ];
         //return $data;
-        return view('grade.edit',$data);
+        return view('grade.edit', $data);
     }
 
     /**

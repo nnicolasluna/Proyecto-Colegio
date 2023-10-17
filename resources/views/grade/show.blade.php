@@ -15,7 +15,7 @@
             </a>
         </td>
         <td align="right">
-            <a href="" class="btn btn-flat btn-success" type="button">
+            <a href="/grade/pdf/{{$subject->id}}/{{$detail->stage_id}}/{{$detail->parallel_id}}" class="btn btn-flat btn-success" type="button" target="_blank">
                 <i class="fas fa-lg fa-save"></i>
                 PDF
             </a>

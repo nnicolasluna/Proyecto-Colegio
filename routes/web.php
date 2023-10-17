@@ -55,4 +55,4 @@ Route::delete('teacher/{id}', [TeacherController::class, 'destroy'])->name('teac
 
 Route::get('grades/{subject}/{stage}/{parallel}', [GradeController::class, 'show']);
 Route::get('grade/{student}/{subject}/{teacher}', [GradeController::class, 'edit']);
-Route::get('grade/pdf',[GradeController::class,'pdf']);
+Route::get('grade/pdf/{subject}/{stage}/{parallel}',[GradeController::class,'pdf']);
