@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\GradeController;
+use App\Http\Controllers\SecretaryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,3 +58,5 @@ Route::get('grades/{subject}/{stage}/{parallel}', [GradeController::class, 'show
 Route::get('grade/{student}/{subject}/{teacher}', [GradeController::class, 'edit']);
 Route::put('grade/edit/{id}', [GradeController::class, 'update'])->name('grade.update');
 Route::get('grade/pdf/{subject}/{stage}/{parallel}',[GradeController::class,'pdf']);
+
+Route::get('secretaries',[SecretaryController::class,'index'])->name('secretary.index');

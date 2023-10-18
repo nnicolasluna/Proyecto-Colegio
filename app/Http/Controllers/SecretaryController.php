@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Secretary;
+use App\Models\Teacher;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SecretaryController extends Controller
@@ -12,7 +14,12 @@ class SecretaryController extends Controller
      */
     public function index()
     {
-        //
+        $teachers = Teacher::join('users', 'users.id', 'teachers.user_id')->paginate(10);
+        $data = [
+            'teachers' => $teachers,
+        ];
+        //return ($data);
+        return view('secretary.index',$data);
     }
 
     /**
