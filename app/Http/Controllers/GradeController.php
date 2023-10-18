@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
+use JeroenNoten\LaravelAdminLte\Console\PackageResources\AuthViewsResource;
 
 class GradeController extends Controller
 {
@@ -54,13 +55,14 @@ class GradeController extends Controller
             ->where('stage_id', $stage)
             ->first();
         $subject = Subject::where('id', $subject)->first();
+        $user = Auth::user();
         $data = [
             'grades' => $grades,
             'detail' => $detail,
             'subject' => $subject,
+            'user' => $user
         ];
         $pdf = Pdf::loadView('grade.pdf', $data);
-
         return $pdf->stream();
         //return view('grade.pdf');
     }
