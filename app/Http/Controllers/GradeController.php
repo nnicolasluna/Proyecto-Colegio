@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Grade;
+use App\Models\Schedule;
 use App\Models\Student;
 use App\Models\Subject;
 use App\Models\Teacher;
@@ -97,10 +98,12 @@ class GradeController extends Controller
         $grades = Grade::where('subject_id', $subject)->where('student_id', $student)->where('teacher_id', $teacher)->first();
         $user = Student::where('id', $student)->first();
         $student = User::where('id', $user->user_id)->first();
+        $teacher = Teacher::where('user_id', Auth::user()->id)->first();
 
         $data = [
             'student' => $student,
-            'grades' => $grades
+            'grades' => $grades,
+            'teacher' => $teacher
         ];
         //return $data;
         return view('grade.edit', $data);
@@ -109,9 +112,15 @@ class GradeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Grade $grade)
+    public function update(Request $request, $id)
     {
-        //
+        $grade = Grade::find($id);
+        $grade->grade1 = $request->grade1;
+        $grade->grade2 = $request->grade2;
+        $grade->grade3 = $request->grade3;
+        $grade->update();
+        return redirect()->route('grade.show',[7,891,866]);
+        // revisar esta parte para corregir 
     }
 
     /**

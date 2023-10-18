@@ -53,6 +53,7 @@ Route::put('teacher/edit/{id}', [TeacherController::class, 'update'])->name('tea
 Route::delete('teacher/{id}', [TeacherController::class, 'destroy'])->name('teacher.destroy');
 Route::delete('teacher/{id}', [TeacherController::class, 'destroy'])->name('teacher.destroy');
 
-Route::get('grades/{subject}/{stage}/{parallel}', [GradeController::class, 'show']);
+Route::get('grades/{subject}/{stage}/{parallel}', [GradeController::class, 'show'])->name('grade.show');
 Route::get('grade/{student}/{subject}/{teacher}', [GradeController::class, 'edit']);
+Route::put('grade/edit/{id}', [GradeController::class, 'update'])->name('grade.update');
 Route::get('grade/pdf/{subject}/{stage}/{parallel}',[GradeController::class,'pdf']);
