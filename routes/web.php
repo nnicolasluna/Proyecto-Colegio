@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
@@ -18,9 +19,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/gaa', function () {
-    return view('welcome');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -35,6 +33,8 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 Route::get('user', [ProfileController::class, 'index']);
+Route::get('user/new', [RegisteredUserController::class, 'create']);
+Route::post('user/new', [RegisteredUserController::class, 'store']);
 Route::get('index', [StudentController::class, 'index'])->name('student.index');
 
 Route::get('schedule', [StudentController::class, 'schedule'])->name('student.schedule');
