@@ -1,11 +1,10 @@
 @extends('adminlte::page')
-
 @section('content')
-
-<div class="card card-primary mb-2">
-    <div class="card-header">
-        <b>Crear Usuario Administrativo</b>
-    </div>
+@section('content_header')
+<h4 class="text-center"><b>Crear Usuario Administrativo</b></h4>
+@stop
+<div class="card card-primary mb-2 card-outline">
+    
     <div class="card-body">
         <div class="form-group">
             <label for="">Nombre</label>
@@ -30,6 +29,13 @@
         <div class="form-group">
             <label for="">Telefono</label>
             <input type="text" class="form-control form-control-sm" placeholder="Telefono">
+        </div>
+        <div class="form-group">
+            <label for="">Cargo</label>
+            <select type="text" class="custom-select rounded-0" placeholder="Telefono">
+                <option value="">Profesor</option>
+                <option value="">Secretario</option>
+            </select>
         </div>
 
     </div>

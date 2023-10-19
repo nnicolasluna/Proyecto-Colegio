@@ -14,12 +14,12 @@ class SecretaryController extends Controller
      */
     public function index()
     {
-        $teachers = Teacher::join('users', 'users.id', 'teachers.user_id')->paginate(10);
+        $teachers = User::distinct('users.id')->join('teachers', 'teachers.user_id', 'users.id')->get();
         $data = [
             'teachers' => $teachers,
         ];
-        //return ($data);
-        return view('secretary.index',$data);
+        return ($data);
+        //return view('secretary.index',$data);
     }
 
     /**
