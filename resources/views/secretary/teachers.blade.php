@@ -5,13 +5,13 @@
 @section('content')
 <table style="width: 100%;">
     <tr>
-      
-        <td>
-            <a href="/user/new" class="btn btn-flat btn-success" type="button">
+        <td style="width: 120px;">
+            <a href="/user/new" class="btn btn-block btn-success" type="button">
                 <i class="fas fa-solid fa-plus"></i>
                 Añadir
             </a>
         </td>
+        <td></td>
     </tr>
     <tr>
         <td></td>

@@ -59,4 +59,5 @@ Route::get('grade/{student}/{subject}/{teacher}', [GradeController::class, 'edit
 Route::put('grade/edit/{id}', [GradeController::class, 'update'])->name('grade.update');
 Route::get('grade/pdf/{subject}/{stage}/{parallel}',[GradeController::class,'pdf']);
 
-Route::get('secretaries',[SecretaryController::class,'index'])->name('secretary.index');
+Route::get('secretary/teachers',[SecretaryController::class,'teachers'])->name('secretary.teachers');
+Route::get('secretary/students',[SecretaryController::class,'students'])->name('secretary.students');

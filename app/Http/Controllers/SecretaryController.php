@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Secretary;
+use App\Models\Student;
 use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -12,14 +13,23 @@ class SecretaryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function teachers()
     {
-        $teachers = User::distinct('users.id')->join('teachers', 'teachers.user_id', 'users.id')->get();
+        $teachers = Teacher::join('users', 'users.id', "=", 'teachers.user_id')->distinct()->paginate(11);
         $data = [
             'teachers' => $teachers,
         ];
-        return ($data);
-        //return view('secretary.index',$data);
+        //return ($data);
+        return view('secretary.teachers',$data);
+    }
+    public function students()
+    {
+        $students = Student::join('users', 'users.id', "=", 'students.user_id')->distinct()->paginate(11);
+        $data = [
+            'students' => $students,
+        ];
+        //return ($data);
+        return view('secretary.students',$data);
     }
 
     /**
@@ -29,7 +39,6 @@ class SecretaryController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      */
