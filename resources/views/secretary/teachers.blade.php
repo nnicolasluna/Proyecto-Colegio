@@ -21,14 +21,14 @@
 <div class="row">
     <div class="col-12" id="accordion">
         <div class="card card-primary card-outline">
-            <a class="d-block w-100" data-toggle="collapse" href="#collapseOne" aria-expanded="true">
+            <a class="d-block w-100" data-toggle="collapse" href="#collapseOne">
                 <div class="card-header">
                     <h4 class="card-title w-100">
                         Lista de Profesores
                     </h4>
                 </div>
             </a>
-            <div id="collapseOne" class="collapse show" data-parent="#accordion" style="">
+            <div id="collapseOne" class="collapse" data-parent="#accordion">
                 <div class="card-body">
                     @section('plugins.Datatables', true)
                     @php
@@ -105,22 +105,22 @@
             </a>
             <div id="collapseThree" class="collapse" data-parent="#accordion">
                 <div class="card-body">
-                @php
+                    @php
                     $heads = [
                     ['label' => 'Nombre Asignatura', 'width' => 30],
                     ['label' => 'Inicial Asignatura', 'width' => 30],
-                    
+
                     ['label' => 'Asignar', 'width' => 10],
                     ];
                     $config['info'] = false;
                     @endphp
-                @section('plugins.Datatables', true)
+                    @section('plugins.Datatables', true)
                     <x-adminlte-datatable id="table3" :heads="$heads" head-theme="dark" :config="$config" striped hoverable bordered compressed>
                         @foreach($subjects as $row)
                         <tr>
                             <td>{{$row->namesub}}</td>
                             <td>{{$row->initialsub}}</td>
-                            
+
 
                             <td>
                                 <a href="" class="btn btn-xs btn-default text-teal mx-1 shadow">
@@ -140,13 +140,39 @@
             <a class="d-block w-100" data-toggle="collapse" href="#collapseFour">
                 <div class="card-header">
                     <h4 class="card-title w-100">
-                        Lista de Asignaturas
+                        Lista de Usuarios
                     </h4>
                 </div>
             </a>
             <div id="collapseFour" class="collapse" data-parent="#accordion">
                 <div class="card-body">
-                    Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                    @php
+                    $heads = [
+                    ['label' => 'Nombre', 'width' => 30],
+                    ['label' => 'Apellidos', 'width' => 30],
+                    ['label' => 'Carnet', 'width' => 30],
+                    ['label' => 'Asignar', 'width' => 10],
+                    ];
+                    $config['info'] = false;
+                    @endphp
+                    @section('plugins.Datatables', true)
+                    <x-adminlte-datatable id="table4" :heads="$heads" head-theme="dark" :config="$config" striped hoverable bordered compressed>
+                        @foreach($users as $row)
+                        <tr>
+                            <td>{{$row->name}}</td>
+                            <td>{{$row->paternal}} {{$row->maternal}}</td>
+                            <td>{{$row->ci}}</td>
+                            <td>
+                                <a href="" class="btn btn-xs btn-default text-teal mx-1 shadow">
+                                    <i class="fa fa-lg fa-fw fa-eye"></i>
+                                </a>
+                                <a href="" class="btn btn-xs btn-default text-primary mx-1 shadow">
+                                    <i class="fa fa-lg fa-fw fa-pen"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </x-adminlte-datatable>
                 </div>
             </div>
         </div>

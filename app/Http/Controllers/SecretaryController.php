@@ -8,6 +8,7 @@ use App\Models\Student;
 use App\Models\Subject;
 use App\Models\Teacher;
 use App\Models\User;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 
 class SecretaryController extends Controller
@@ -22,10 +23,12 @@ class SecretaryController extends Controller
         $secretaries = User::distinct()->join('secretaries', 'secretaries.user_id', 'users.id')
             ->get(['users.name', 'paternal', 'maternal', 'ci', 'users.id']);
         $subjects = Subject::all();
+        $users = User::all();
         $data = [
             'teachers' => $teachers,
             'secretaries' => $secretaries,
-            'subjects' => $subjects
+            'subjects' => $subjects,
+            'users' => $users,
         ];
         //return ($data);
         return view('secretary.teachers', $data);
@@ -40,20 +43,39 @@ class SecretaryController extends Controller
         //return ($data);
         return view('secretary.students', $data);
     }
-
+    public function users()
+    {
+        $users = User::all();
+        $data = [
+            'users' => $users,
+        ];
+        //return ($data);
+        return view('secretary.students', $data);
+    }
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('user.create');
     }
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = 'nicolas@luna';
+        $user->maternal = $request->maternal;
+        $user->paternal = $request->paternal;
+        $user->ci = $request->ci;
+        $user->gender = $request->gender;
+        $user->phone = $request->phone;
+        $user->date = '1989-02-18';
+        $user->password = $request->ci;
+        $user->save();
+        return redirect(RouteServiceProvider::HOME);
     }
 
     /**

@@ -33,8 +33,8 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 Route::get('user', [ProfileController::class, 'index']);
-Route::get('user/new', [RegisteredUserController::class, 'create']);
-Route::post('user/new', [RegisteredUserController::class, 'store']);
+Route::get('user/new', [SecretaryController::class, 'create']);
+Route::post('user/new', [SecretaryController::class, 'store']);
 Route::get('index', [StudentController::class, 'index'])->name('student.index');
 
 Route::get('schedule', [StudentController::class, 'schedule'])->name('student.schedule');
