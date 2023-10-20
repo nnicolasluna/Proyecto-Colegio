@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Schedule;
 use App\Models\Secretary;
 use App\Models\Student;
+use App\Models\Subject;
 use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,21 +17,28 @@ class SecretaryController extends Controller
      */
     public function teachers()
     {
-        $teachers = Teacher::join('users', 'users.id', "=", 'teachers.user_id')->distinct()->paginate(11);
+        $teachers = User::distinct()->join('teachers', 'teachers.user_id', 'users.id')
+            ->get(['users.name', 'paternal', 'maternal', 'ci', 'users.id']);
+        $secretaries = User::distinct()->join('secretaries', 'secretaries.user_id', 'users.id')
+            ->get(['users.name', 'paternal', 'maternal', 'ci', 'users.id']);
+        $subjects = Subject::all();
         $data = [
             'teachers' => $teachers,
+            'secretaries' => $secretaries,
+            'subjects' => $subjects
         ];
         //return ($data);
-        return view('secretary.teachers',$data);
+        return view('secretary.teachers', $data);
     }
     public function students()
     {
-        $students = Student::join('users', 'users.id', "=", 'students.user_id')->distinct()->paginate(11);
+        $students = User::distinct()->join('students', 'students.user_id', 'users.id')
+            ->get(['users.name', 'paternal', 'maternal', 'ci', 'users.id']);
         $data = [
             'students' => $students,
         ];
         //return ($data);
-        return view('secretary.students',$data);
+        return view('secretary.students', $data);
     }
 
     /**

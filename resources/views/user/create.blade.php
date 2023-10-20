@@ -41,7 +41,7 @@
     </div>
     <div class="card-footer">
         <button class="btn btn-primary float-right">Guardar</button>
-        <a href="/secretaries" class="btn btn-secondary">Cancelar</a>
+        <a href="/secretary/teachers" class="btn btn-secondary">Cancelar</a>
     </div>
 </div>
 @stop

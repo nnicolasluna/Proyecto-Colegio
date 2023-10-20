@@ -54,23 +54,17 @@ class EventServiceProvider extends ServiceProvider
         });
         Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
             $event->menu->add([
-                'text' => 'Administrativos',
+                'text' => 'Administrativo',
                 'url' => '/secretary/teachers',
                 'icon' => 'fa fa-users',
             ]);
         });
+        
         Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
             $event->menu->add([
                 'text' => 'Estudiantes',
                 'url' => '/secretary/students',
                 'icon' => 'fa fa-book',
-            ]);
-        });
-        Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
-            $event->menu->add([
-                'text' => 'Horarios',
-                'url' => '',
-                'icon' => 'fa fa-calendar',
             ]);
         });
         Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
