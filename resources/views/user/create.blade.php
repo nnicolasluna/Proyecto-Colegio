@@ -32,12 +32,16 @@
                 <input type="text" class="form-control form-control-sm" name="phone" placeholder="Telefono">
             </div>
             <div class="form-group">
+                <label for="">Fecha de Nacimiento</label>
+                <input type="date" name="date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask="" placeholder="dd/mm/yyyy">
+            </div>
+       <!--      <div class="form-group">
                 <label for="">Cargo</label>
                 <select type="text" class="custom-select rounded-0" placeholder="Telefono">
                     <option value="">Profesor</option>
                     <option value="">Secretario</option>
                 </select>
-            </div>
+            </div> -->
 
         </div>
         <div class="card-footer">

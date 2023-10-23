@@ -66,25 +66,30 @@ class SecretaryController extends Controller
     {
         $user = new User();
         $user->name = $request->name;
-        $user->email = 'nicolas@luna';
+        $user->email = $request->name;
         $user->maternal = $request->maternal;
         $user->paternal = $request->paternal;
         $user->ci = $request->ci;
         $user->gender = $request->gender;
         $user->phone = $request->phone;
-        $user->date = '1989-02-18';
+        $user->date =  $request->date;
         $user->password = $request->ci;
         $user->save();
-        return redirect(RouteServiceProvider::HOME);
+        return view('secretary.teachers');
     }
 
+    public function show($id)
+    {
+        $user = User::find($id);
+        $data = [
+            'user' => $user,
+        ];
+        return view('user.show',$data);
+    }
     /**
      * Display the specified resource.
      */
-    public function show(Secretary $secretary)
-    {
-        //
-    }
+ 
 
     /**
      * Show the form for editing the specified resource.

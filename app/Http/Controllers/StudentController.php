@@ -71,7 +71,6 @@ class StudentController extends Controller
         $data = [
             'grades' => $grades,
         ];
-        //return ($grades);
         return view('student.show', $data);
     }
 
