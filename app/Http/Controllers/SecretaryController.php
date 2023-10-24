@@ -10,6 +10,7 @@ use App\Models\Teacher;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SecretaryController extends Controller
 {
@@ -81,15 +82,20 @@ class SecretaryController extends Controller
     public function show($id)
     {
         $user = User::find($id);
+        $teachers = Teacher::join('parallels', 'parallels.id', '=', 'teachers.parallel_id')
+            ->join('stages', 'stages.id', '=', 'teachers.stage_id')
+            ->where('user_id', $id)->get();
         $data = [
             'user' => $user,
+            'teachers' => $teachers
         ];
-        return view('user.show',$data);
+        //return $teachers;
+        return view('user.show', $data);
     }
     /**
      * Display the specified resource.
      */
- 
+
 
     /**
      * Show the form for editing the specified resource.

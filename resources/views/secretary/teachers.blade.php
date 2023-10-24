@@ -49,12 +49,12 @@
                             <td>{{$row->ci}}</td>
 
                             <td>
-                                <a href="" class="btn btn-xs btn-default text-teal mx-1 shadow">
+                                <a href="/user/{{$row->id}}" class="btn btn-xs btn-default text-teal mx-1 shadow">
                                     <i class="fa fa-lg fa-fw fa-eye"></i>
                                 </a>
-                                <a href="" class="btn btn-xs btn-default text-primary mx-1 shadow">
+                              <!--   <a href="" class="btn btn-xs btn-default text-primary mx-1 shadow">
                                     <i class="fa fa-lg fa-fw fa-pen"></i>
-                                </a>
+                                </a> -->
                             </td>
                         </tr>
                         @endforeach

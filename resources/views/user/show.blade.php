@@ -47,7 +47,7 @@
         @section('plugins.Datatables', true)
         @php
         $heads = [
-        ['label' => 'Materia', 'width' => 30],
+
         ['label' => 'Grado', 'width' => 30],
         ['label' => 'Paralelo', 'width' => 30],
         ['label' => 'Asignar', 'width' => 10],
@@ -56,12 +56,11 @@
         @endphp
 
         <x-adminlte-datatable id="table1" :heads="$heads" head-theme="dark" :config="$config" striped hoverable bordered compressed>
-            
+            @if($teachers!=null)
+            @foreach($teachers as $teacher)
             <tr>
-                <td>{{}}</td>
-                <td></td>
-                <td></td>
-
+                <td>{{$teacher->initialstage}}</td>
+                <td>{{$teacher->nameparallel}}</td>
                 <td>
                     <a href="" class="btn btn-xs btn-default text-teal mx-1 shadow">
                         <i class="fa fa-lg fa-fw fa-eye"></i>
@@ -71,6 +70,10 @@
                     </a>
                 </td>
             </tr>
+            @endforeach
+            @else
+            <tr> Sin datos</tr>
+            @endif
 
         </x-adminlte-datatable>
 
