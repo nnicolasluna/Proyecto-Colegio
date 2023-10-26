@@ -8,7 +8,7 @@
         <i class="fas fa-solid fa-plus"></i>
         Añadir Personal
     </a>
-    <a href="/user/new" class="btn btn-primary" type="button">
+    <a href="/subject/new" class="btn btn-primary" type="button">
         <i class="fas fa-solid fa-plus"></i>
         Crear Asignatura
     </a>

@@ -36,6 +36,10 @@ Route::get('user', [ProfileController::class, 'index']);
 
 Route::get('user/new', [SecretaryController::class, 'create'])->name('user.create');
 Route::post('user/new', [SecretaryController::class, 'store'])->name('user.store');
+Route::get('subject/new', [SecretaryController::class, 'createsub'])->name('subject.createsub');
+Route::post('subject/new', [SecretaryController::class, 'storesub'])->name('subject.storesub');
+Route::get('period/new', [SecretaryController::class, 'createper'])->name('subject.createper');
+Route::post('period/new', [SecretaryController::class, 'storeper'])->name('subject.storeper');
 Route::get('user/{id}', [SecretaryController::class, 'show'])->name('user.show');
 Route::get('index', [StudentController::class, 'index'])->name('student.index');
 

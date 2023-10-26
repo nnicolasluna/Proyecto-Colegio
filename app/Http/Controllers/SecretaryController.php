@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Period;
 use App\Models\Schedule;
 use App\Models\Secretary;
 use App\Models\Student;
@@ -119,5 +120,38 @@ class SecretaryController extends Controller
     public function destroy(Secretary $secretary)
     {
         //
+    }
+    public function createsub()
+    {
+        return view('secretary.createsub');
+    }
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function storesub(Request $request)
+    {
+        $subject = new Subject();
+        $subject->namesub = $request->namesub;
+        $subject->initialsub = $request->initialsub;
+        $subject->save();
+        return view('secretary.teachers');
+    }
+    public function createper()
+    {
+        return view('secretary.createper');
+    }
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function storeper(Request $request)
+    {
+        $period = new Period();
+        $period->namesub = $request->namesub;
+        $period->initialsub = $request->initialsub;
+        $period->namesub = $request->namesub;
+        $period->initialsub = $request->initialsub;
+        $period->namesub = $request->namesub;
+        $period->save();
+        return view('secretary.teachers');
     }
 }
