@@ -12,7 +12,7 @@
         <i class="fas fa-solid fa-plus"></i>
         Crear Asignatura
     </a>
-    <a href="/user/new" class="btn btn-info" type="button">
+    <a href="/period/new" class="btn btn-info" type="button">
         <i class="fas fa-solid fa-plus"></i>
         Crear Horario
     </a>

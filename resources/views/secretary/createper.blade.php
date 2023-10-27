@@ -13,11 +13,11 @@
             </div>
             <div class="form-group">
                 <label for="">Inicio del Periodo</label>
-                <input type="text" class="form-control form-control-sm" name="initialsub" placeholder="Inicial de la Materia">
+                <input type="time" class="form-control form-control-sm" name="initialsub" placeholder="Inicial de la Materia">
             </div>
             <div class="form-group">
-                <label for="">Fin del Periodo/label>
-                <input type="text" class="form-control form-control-sm" name="initialsub" placeholder="Inicial de la Materia">
+                <label for="">Fin del Periodo</label>
+                <input type="time" class="form-control form-control-sm" name="initialsub" placeholder="Inicial de la Materia">
             </div>
             <div class="form-group">
                 <label for="">Dia</label>
@@ -27,7 +27,7 @@
                 <label for="">Dia abreviado</label>
                 <input type="text" class="form-control form-control-sm" name="initialsub" placeholder="Inicial de la Materia">
             </div>
-           
+
         </div>
         <div class="card-footer">
             <button class="btn btn-primary float-right" type="submit">Guardar</button>
