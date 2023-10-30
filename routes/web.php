@@ -41,6 +41,9 @@ Route::post('subject/new', [SecretaryController::class, 'storesub'])->name('subj
 Route::get('period/new', [SecretaryController::class, 'createper'])->name('subject.createper');
 Route::post('period/new', [SecretaryController::class, 'storeper'])->name('subject.storeper');
 Route::get('user/{id}', [SecretaryController::class, 'show'])->name('user.show');
+Route::get('teacher/new/subject', [SecretaryController::class, 'createdic '])->name('teacher.createdic');
+Route::post('teacher/new/subject', [SecretaryController::class, 'storedic'])->name('teacher.storedic');
+
 Route::get('index', [StudentController::class, 'index'])->name('student.index');
 
 Route::get('schedule', [StudentController::class, 'schedule'])->name('student.schedule');

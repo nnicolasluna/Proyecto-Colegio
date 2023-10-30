@@ -154,4 +154,23 @@ class SecretaryController extends Controller
         $period->save();
         return view('secretary.teachers');
     }
+    public function createdic($id)
+    {
+        return view('secretary.createdic');
+    }
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function storeidc(Request $request)
+    {
+        $period = new Period();
+        $period->namesub = $request->namesub;
+        $period->initialsub = $request->initialsub;
+        $period->namesub = $request->namesub;
+        $period->initialsub = $request->initialsub;
+        $period->namesub = $request->namesub;
+        $period->save();
+        return view('secretary. teachers');
+    }
+
 }
